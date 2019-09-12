@@ -7,18 +7,20 @@ export const UPDATE_REQUEST = 'UPDATE_REQUEST';
 
 
 
-const access_key = "98ccbe4524cb7f7d09e38b4c2a13401a"
 
-export const getQuote = () => dispatch => {
+
+export const getQuote = (props) => dispatch => {
   dispatch({ type: FETCHING_QUOTE_START });
+    console.log("axios props", props)
   axios
-    .get(`http://api.languagelayer.com/detect?access_key`)
+    .put(`http://api.languagelayer.com/detect?access_key=${props.access_key}&query=${props.request}`)
+     .then(res => console.log(res))
     // .then(res => {
-    //   dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res.data.quote });
+    //   dispatch({ type: FETCHING_QUOTE_SUCCESS, payload: res });
     // })
-    // .catch(err => {
-    //   dispatch({ type: FETCHING_QUOTE_FAILURE, payload: res.data.quote });
-    // });
+    .catch(err => {
+      dispatch({ type: FETCHING_QUOTE_FAILURE, payload: err });
+    });
 };
 
 export const updateRequest = request => {

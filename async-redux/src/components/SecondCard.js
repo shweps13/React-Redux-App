@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 
-import { getQuote } from '../actions/index'
+import { getQuote, updateRequest } from '../actions/index'
 
-const Quotes = ({ getQuote, quote, isFetching, error }) => {
+const Quotes = ({ access_key, request, getQuote, quote, isFetching, error }) => {
     useEffect(() => {
       // run action creator when the component mounts
-      getQuote();
-    }, [getQuote]);
+      getQuote({access_key, request});
+    }, [request]);
   
     if (isFetching) {
-      return <h3>Fetching quote for ya!</h3>;
+      return <h3>Fetching quote...</h3>;
     }
   
     return (
       <div>
-        <h2>Kanye says: {quote}</h2>
-        <button onClick={getQuote}>Get New Quote</button>
+        <h2>Response is: {quote}</h2>
       </div>
     );
   };
 
   const mapStateToProps = state => {
-    console.log('mSTP state:', state);
+    console.log('mSTP state in SecondCard:', state);
     return {
       access_key: state.access_key,
       request: state.request,
@@ -34,5 +33,5 @@ const Quotes = ({ getQuote, quote, isFetching, error }) => {
   
   export default connect(
     mapStateToProps,
-    { getQuote }
+    { getQuote, updateRequest }
   )(Quotes); // function currying
