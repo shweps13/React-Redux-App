@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import MainCard from './components/MainCard'
+import SecondCard from './components/SecondCard'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         </h1>
       </header>
       <MainCard />
+      <SecondCard />
     </div>
   );
 }

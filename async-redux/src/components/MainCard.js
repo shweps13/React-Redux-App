@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
 
-import { updateRequest, getQuote} from '../actions/index'
+import { updateRequest } from '../actions/index'
 
 function MainCard(props) {
 
@@ -36,7 +36,7 @@ const handleChange = e => {
 }
 
 const mapStateToProps = state => {
-  console.log('mSTP state:', state);
+  // console.log('mSTP state in MainCard:', state);
   return {
     access_key: state.access_key,
     request: state.request,
@@ -48,5 +48,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { updateRequest, getQuote }
+  { updateRequest }
 )(MainCard); // function currying
