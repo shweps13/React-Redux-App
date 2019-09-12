@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { connect } from "react-redux";
 
 import { updateRequest, getQuote} from '../actions/index'
@@ -8,7 +7,6 @@ function MainCard(props) {
 
 const [newRequest, setNewRequest] = useState("");
 console.log(newRequest)
-const access_key = "98ccbe4524cb7f7d09e38b4c2a13401a"
 
 
 
@@ -36,28 +34,6 @@ const handleChange = e => {
     </div>
   );
 }
-
-// const MainCard = ({ getQuote, quote, isFetching, error }) => {
-//   useEffect(() => {
-//     // run action creator when the component mounts
-//     getQuote();
-//   }, [getQuote]);
-
-
-  
-//   if (isFetching) {
-//     return <h3>Fetching quote for ya!</h3>;
-//   }
-
-//   return (
-//     <div>
-//       <h2>Kanye says: {quote}</h2>
-//       <button onClick={getQuote}>Get New Quote</button>
-//     </div>
-//   );
-// };
-
-
 
 const mapStateToProps = state => {
   console.log('mSTP state:', state);
