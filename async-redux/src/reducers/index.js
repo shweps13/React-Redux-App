@@ -9,7 +9,7 @@ import {
   const initialState = {
     access_key: "98ccbe4524cb7f7d09e38b4c2a13401a",
     request: "How is it going?",
-    quote: null,
+    quote: [],
     isFetching: false,
     error: ""
   };
@@ -33,7 +33,7 @@ import {
         return {
           ...state,
           isFetching: false,
-          quote: action.payload
+          quote: action.payload.results
         };
     default:
         return state;

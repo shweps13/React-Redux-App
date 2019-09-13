@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 
 import { getQuote, updateRequest } from '../actions/index'
@@ -12,10 +12,17 @@ const Quotes = ({ access_key, request, getQuote, quote, isFetching, error }) => 
     if (isFetching) {
       return <h3>Fetching quote...</h3>;
     }
-  
+    
     return (
       <div>
-        <h2>Response is: {quote}</h2>
+        <h2>Response</h2>
+        {console.log(quote)}
+        <div>{quote.map(item => (
+            <div key={Date.now()}>
+            <p>{item.language_name}</p>
+            </div>
+          ))}</div>
+        
       </div>
     );
   };

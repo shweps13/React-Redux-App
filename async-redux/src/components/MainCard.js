@@ -25,10 +25,10 @@ const handleChange = e => {
         type="text"
         onChange={handleUserNameInput}
         value={newRequest}
-        placeholder="username..."
+        placeholder="Type few words here"
       />
       <button className="btn btn-large right" onClick={handleChange}>
-        Log Names
+        Check the language
       </button>
 
     </div>
