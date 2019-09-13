@@ -8,7 +8,7 @@ import {
   
   const initialState = {
     access_key: "98ccbe4524cb7f7d09e38b4c2a13401a",
-    request: "How is it going?",
+    request: "Matthew is a pianist living in Nashville",
     quote: [],
     isFetching: false,
     error: ""

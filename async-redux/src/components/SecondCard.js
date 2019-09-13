@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
+import 'semantic-ui-css/semantic.min.css'
+import { Card } from 'semantic-ui-react'
 
 import { getQuote, updateRequest } from '../actions/index'
 
@@ -15,14 +17,21 @@ const Quotes = ({ access_key, request, getQuote, quote, isFetching, error }) => 
     
     return (
       <div>
-        <h2>Response</h2>
+        <h2>Here is results:</h2>
+        <Card.Group>
         {console.log(quote)}
-        <div>{quote.map(item => (
-            <div key={Date.now()}>
-            <p>{item.language_name}</p>
-            </div>
-          ))}</div>
-        
+          <Card>
+          {quote.map(item => (
+            <Card.Content key={Date.now() + item.probability}>
+              <Card.Header>{item.language_name}</Card.Header>
+              <Card.Meta>Percentage is: {item.percentage}%</Card.Meta>
+              <Card.Description>
+                Probability of {item.language_name} language is {item.probability}
+              </Card.Description>
+            </Card.Content>
+          ))}
+          </Card>
+        </Card.Group>
       </div>
     );
   };

@@ -12,6 +12,7 @@ function App() {
         Async Redux - React Redux App
         </h1>
       </header>
+      <h1>Language checker</h1>
       <MainCard />
       <SecondCard />
     </div>

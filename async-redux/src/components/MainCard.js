@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from "react-redux";
+import 'semantic-ui-css/semantic.min.css'
 
 import { updateRequest } from '../actions/index'
 
@@ -21,6 +22,7 @@ const handleChange = e => {
 
   return (
     <div className="MainCard">
+      <h3>Type some text for exploring</h3>
       <input
         type="text"
         onChange={handleUserNameInput}
@@ -30,7 +32,7 @@ const handleChange = e => {
       <button className="btn btn-large right" onClick={handleChange}>
         Check the language
       </button>
-
+      <p>For example "Matthew is a pianist living in Nashville"</p>
     </div>
   );
 }
