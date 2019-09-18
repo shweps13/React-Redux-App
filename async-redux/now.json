@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "name": "async-redux",
+    "builds": [
+        {
+            "src": "async-redux/package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "async-redux/$1"
+        }
+    ]
+}
